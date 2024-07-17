@@ -1,17 +1,18 @@
+import Cookies from "js-cookie";
 /**
  * 存储/获取 user token
  */
 
-const KEY = "USER_TOKEN";
+const TokenKey = "Admin-Token";
 
 export function setToken(token: string) {
-  localStorage.setItem(KEY, token);
+  Cookies.set(TokenKey, token);
 }
 
 export function getToken() {
-  return localStorage.getItem(KEY) || "";
+  return Cookies.get(TokenKey) || "";
 }
 
 export function removeToken() {
-  localStorage.removeItem(KEY);
+  Cookies.remove(TokenKey);
 }
