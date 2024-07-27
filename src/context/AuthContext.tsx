@@ -9,6 +9,7 @@ import axios from "@/services/ajax";
 import { User } from "../types/auth";
 import { setToken, removeToken, getToken } from "@/utils/user-token";
 import { usePathname } from "next/navigation";
+import { loginService, fetchUserInfoService } from "@/services/login";
 
 interface AuthContextType {
   user: User | null;
@@ -32,17 +33,18 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     console.log("AuthProvider mounted");
     const token = getToken();
     if (token) {
-      fetchUserInfo(token);
+      fetchUserInfo();
     } else {
       setLoading(false);
     }
   }, [pathUrl]);
 
-  const fetchUserInfo = async (token: string) => {
+  const fetchUserInfo = async () => {
     try {
-      const response = await axios.get("/getInfo");
-      if (response.data.code === 200) {
-        setUser(response.data.user);
+      const res = await fetchUserInfoService();
+      const { code, user } = res;
+      if (code === 200) {
+        setUser(user);
       } else {
         removeToken();
       }
@@ -56,7 +58,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
   const login = async (token: string) => {
     setToken(token);
-    await fetchUserInfo(token);
+    await fetchUserInfo();
   };
 
   const logout = async () => {

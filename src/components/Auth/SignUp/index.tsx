@@ -1,11 +1,11 @@
 "use client";
-import axios from "@/services/ajax";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import Loader from "@/components/Common/Loader";
+import { registerService } from "@/services/login";
 
 const SignUp = () => {
   const router = useRouter();
@@ -21,19 +21,13 @@ const SignUp = () => {
 
     // 调用登录接口
     try {
-      const response = await axios.post("/register", finalData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await registerService(finalData);
 
-      const data = response.data;
-
-      if (response.status === 200 && data.code === 200) {
+      if (res.code === 200) {
         toast.success("注册成功");
         router.push("/signin");
       } else {
-        toast.success(data.msg || "注册失败，请稍后再试");
+        toast.success(res.msg || "注册失败，请稍后再试");
       }
     } catch (error) {
       console.error("Login error:", error);

@@ -1,5 +1,4 @@
 "use client";
-import axios from "@/services/ajax";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -7,6 +6,7 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import Loader from "@/components/Common/Loader";
 import { setToken } from "@/utils/user-token";
+import { loginService } from "@/services/login";
 
 const Signin = () => {
   const router = useRouter();
@@ -24,22 +24,16 @@ const Signin = () => {
     setLoading(true);
     // 调用登录接口
     try {
-      const response = await axios.post("/login", loginData, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      const res = await loginService(loginData);
 
-      const data = response.data;
-
-      if (response.status === 200 && data.code === 200) {
+      if (res.code === 200) {
         // Store the token if needed
-        setToken(data.token);
+        setToken(res.token);
 
         toast.success("登录成功");
         router.push("/");
       } else {
-        toast.success(data.msg || "登录失败，请检查用户名或密码");
+        toast.success(res.msg || "登录失败，请检查用户名或密码");
       }
     } catch (error) {
       console.error("Login error:", error);

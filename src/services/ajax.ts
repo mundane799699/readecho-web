@@ -5,15 +5,25 @@ const instance = axios.create({
   baseURL: "http://localhost:8080",
 });
 
-// request 拦截: 每次请求都带上token
-instance.interceptors.request.use(
-  (config) => {
-    // JWT的固定格式
-    config.headers["Authorization"] = `Bearer ${getToken()}`;
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  },
-);
+// 只有在客户端才添加token
+if (typeof window !== "undefined") {
+  instance.interceptors.request.use(
+    (config) => {
+      const token = getToken();
+      if (token) {
+        config.headers["Authorization"] = `Bearer ${token}`;
+      }
+      return config;
+    },
+    (error) => {
+      return Promise.reject(error);
+    },
+  );
+}
+
+instance.interceptors.response.use((res) => {
+  const { data } = res;
+  return data as any;
+});
+
 export default instance;

@@ -80,5 +80,11 @@ const menuData: Menu[] = [
       },
     ],
   },
+  {
+    id: 7,
+    title: "查看笔记",
+    path: "/dashboard",
+    newTab: false,
+  },
 ];
 export default menuData;
