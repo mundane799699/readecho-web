@@ -1,10 +1,11 @@
 "use client";
 
-import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
+  const router = useRouter();
   useEffect(() => {
     getBooks();
   }, []);
@@ -22,6 +23,10 @@ const BookList = () => {
     }
   };
 
+  const handleBookClick = (bookId: string) => {
+    router.push(`/notes/${bookId}`);
+  };
+
   return (
     <section className="pb-10 pt-20 lg:pb-20 lg:pt-[120px]">
       <div className="container">
@@ -29,7 +34,8 @@ const BookList = () => {
           {books.map((item: any) => (
             <li
               key={item.bookId}
-              className="flex rounded-lg border border-gray-200 p-4"
+              className="flex cursor-pointer rounded-lg border border-gray-200 p-4 transition-colors hover:bg-gray-50"
+              onClick={() => handleBookClick(item.bookId)}
             >
               <img
                 className="mr-4 h-28 w-20 object-cover"
