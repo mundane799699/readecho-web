@@ -2,7 +2,7 @@ import axios from "axios";
 import { getToken } from "@/utils/user-token";
 
 const instance = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
 });
 
 // 只有在客户端才添加token
