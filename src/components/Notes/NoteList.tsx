@@ -18,7 +18,8 @@ const NoteList = ({ bookId }: { bookId: string }) => {
     const { code, rows } = await response.json();
     console.log("rows = ", rows);
     if (code === 200) {
-      setNotes(rows);
+      const filteredRows = rows.filter((item: any) => item.markText);
+      setNotes(filteredRows);
     }
   };
   return (
