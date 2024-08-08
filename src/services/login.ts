@@ -1,6 +1,6 @@
 import axios from "./ajax";
 export async function loginService(loginData: any): Promise<any> {
-  return await axios.post("/login", loginData, {
+  return await axios.post("/login233", loginData, {
     headers: {
       "Content-Type": "application/json",
     },
