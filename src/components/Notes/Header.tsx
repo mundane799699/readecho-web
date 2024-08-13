@@ -9,7 +9,7 @@ const Header = () => {
     router.back();
   };
   return (
-    <header className="fixed left-0 right-0 top-0 z-10 bg-white shadow-md">
+    <header className="bg-white">
       <div className="container mx-auto px-4 py-3">
         <div className="flex cursor-pointer items-center" onClick={handleBack}>
           <ArrowLeft className="mr-2 h-5 w-5 text-gray-600" />

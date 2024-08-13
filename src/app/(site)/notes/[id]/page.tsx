@@ -11,9 +11,9 @@ export default async function NotePage({ params }: { params: { id: string } }) {
   const bookId = params.id;
 
   return (
-    <>
+    <div className="pb-10 pt-20 lg:pb-20 lg:pt-[120px]">
       <Header />
       <NoteList bookId={bookId} />
-    </>
+    </div>
   );
 }

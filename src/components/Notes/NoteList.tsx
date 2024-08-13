@@ -23,7 +23,7 @@ const NoteList = ({ bookId }: { bookId: string }) => {
     }
   };
   return (
-    <section className="pb-10 pt-20 lg:pb-20 lg:pt-[120px]">
+    <section className="pb-10 pt-6 lg:pb-20 lg:pt-[30px]">
       <div className="container">
         <div className="space-y-4">
           {notes.map((note: any) => (
