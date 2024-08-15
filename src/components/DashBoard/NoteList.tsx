@@ -36,7 +36,7 @@ const NoteList = ({ initialBookName }: { initialBookName: string }) => {
   };
 
   return (
-    <div className="flex flex-col items-center space-y-4">
+    <div className="space-y-4">
       <div className="flex items-center space-x-2">
         <label htmlFor="bookName" className="w-16 font-medium text-primary">
           书名:
