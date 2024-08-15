@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { DEFAULT_CIPHERS } from "tls";
 
 const config: Config = {
   darkMode: "class",
@@ -7,7 +8,16 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    extend: {
+      colors: {
+        primary: "#e87549",
+      },
+      backgroundColor: {
+        primary: "#e87549",
+      },
+    },
+  },
   plugins: [require("tailgrids/plugin")],
 };
 export default config;

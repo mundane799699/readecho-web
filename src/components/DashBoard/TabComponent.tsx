@@ -20,7 +20,7 @@ const TabComponent: React.FC = () => {
         <button
           className={`px-4 py-2 ${
             activeTab === "bookshelf"
-              ? "border-b-2 border-blue-500 text-blue-500"
+              ? "border-b-2 border-orange-500 text-orange-500"
               : "text-gray-500 hover:text-gray-700"
           }`}
           onClick={() => setActiveTab("bookshelf")}
@@ -31,7 +31,7 @@ const TabComponent: React.FC = () => {
         <button
           className={`px-4 py-2 ${
             activeTab === "underline"
-              ? "border-b-2 border-blue-500 text-blue-500"
+              ? "border-b-2 border-orange-500 text-orange-500"
               : "text-gray-500 hover:text-gray-700"
           }`}
           onClick={() => handleBookSelect("")}
