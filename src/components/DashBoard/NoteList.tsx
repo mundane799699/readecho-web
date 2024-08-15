@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dayjs from "dayjs";
 
 const NoteList = ({ bookId }: { bookId: string }) => {
   const [notes, setNotes] = useState([]);
@@ -31,10 +32,15 @@ const NoteList = ({ bookId }: { bookId: string }) => {
           <h3 className="mb-2 text-lg font-semibold">{note.noteContent}</h3>
           <div className="flex">
             <div className="mr-3 w-1 bg-gray-300"></div>
-            <p className="flex-1 text-sm text-gray-600">
-              {note.markText.length > 100
-                ? `${note.markText.slice(0, 100)}...`
-                : note.markText}
+            <p className="flex-1 text-sm text-gray-600">{note.markText}</p>
+          </div>
+          <div className="mt-16 flex justify-between">
+            <p className="text-gray-400">
+              {note.bookName}/{note.chapterName}
+            </p>
+            <p className="text-gray-400">
+              {note.noteTime &&
+                dayjs.unix(note.noteTime).format("YYYY-MM-DD HH:mm:ss")}
             </p>
           </div>
         </div>

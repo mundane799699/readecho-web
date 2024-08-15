@@ -15,6 +15,7 @@
     "axios": "^1.6.2",
     "bcrypt": "^5.0.1",
     "date-fns": "^3.4.0",
+    "dayjs": "^1.11.12",
     "gray-matter": "^4.0.3",
     "js-cookie": "^3.0.5",
     "lucide-react": "^0.416.0",

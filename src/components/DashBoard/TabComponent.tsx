@@ -1,16 +1,18 @@
 "use client";
 
 import React, { useState } from "react";
+import BookList from "@/components/DashBoard/BookList";
+import NoteList from "@/components/DashBoard/NoteList";
 
-interface TabProps {
-  Bookshelf: JSX.Element;
-  Underline: JSX.Element;
-}
-
-const TabComponent: React.FC<TabProps> = ({ Bookshelf, Underline }) => {
+const TabComponent: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"bookshelf" | "underline">(
     "bookshelf",
   );
+  const [selectedBookId, setSelectedBookId] = useState<string>("");
+  const handleBookSelect = (bookId: string) => {
+    setSelectedBookId(bookId);
+    setActiveTab("underline");
+  };
 
   return (
     <div className="w-full">
@@ -32,13 +34,17 @@ const TabComponent: React.FC<TabProps> = ({ Bookshelf, Underline }) => {
               ? "border-b-2 border-blue-500 text-blue-500"
               : "text-gray-500 hover:text-gray-700"
           }`}
-          onClick={() => setActiveTab("underline")}
+          onClick={() => handleBookSelect("")}
         >
           划线
         </button>
       </div>
       <div className="mt-4">
-        {activeTab === "bookshelf" ? Bookshelf : Underline}
+        {activeTab === "bookshelf" ? (
+          <BookList onBookSelect={handleBookSelect} />
+        ) : (
+          <NoteList bookId={selectedBookId} />
+        )}
       </div>
     </div>
   );
