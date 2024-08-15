@@ -26,8 +26,8 @@ const BookList: React.FC<BookListProps> = ({ onBookSelect }) => {
     }
   };
 
-  const handleBookClick = (bookId: string) => {
-    onBookSelect(bookId);
+  const handleBookClick = (bookName: string) => {
+    onBookSelect(bookName);
   };
 
   return (
@@ -36,7 +36,7 @@ const BookList: React.FC<BookListProps> = ({ onBookSelect }) => {
         <li
           key={item.bookId}
           className="flex cursor-pointer rounded-lg border border-gray-200 p-4 transition-colors hover:bg-gray-50"
-          onClick={() => handleBookClick(item.bookId)}
+          onClick={() => handleBookClick(item.bookName)}
         >
           <img
             className="mr-4 h-28 w-20 object-cover"

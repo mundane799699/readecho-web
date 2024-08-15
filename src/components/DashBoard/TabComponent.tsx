@@ -8,9 +8,9 @@ const TabComponent: React.FC = () => {
   const [activeTab, setActiveTab] = useState<"bookshelf" | "underline">(
     "bookshelf",
   );
-  const [selectedBookId, setSelectedBookId] = useState<string>("");
-  const handleBookSelect = (bookId: string) => {
-    setSelectedBookId(bookId);
+  const [selectedBookName, setSelectedBookName] = useState<string>("");
+  const handleBookSelect = (bookName: string) => {
+    setSelectedBookName(bookName);
     setActiveTab("underline");
   };
 
@@ -43,7 +43,7 @@ const TabComponent: React.FC = () => {
         {activeTab === "bookshelf" ? (
           <BookList onBookSelect={handleBookSelect} />
         ) : (
-          <NoteList bookId={selectedBookId} />
+          <NoteList initialBookName={selectedBookName} />
         )}
       </div>
     </div>
