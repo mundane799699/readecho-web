@@ -2,6 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import dayjs from "dayjs";
 import { useDebounce } from "use-debounce";
 import { X } from "lucide-react";
+import { exportNotesService } from "@/services/notes";
 
 const NoteList = ({ initialBookName }: { initialBookName: string }) => {
   const [notes, setNotes] = useState([]);
@@ -35,30 +36,42 @@ const NoteList = ({ initialBookName }: { initialBookName: string }) => {
     setBookName("");
   };
 
+  const exportNotes = async () => {
+    exportNotesService(debouncedBookName);
+  };
+
   return (
     <div className="space-y-4">
-      <div className="flex items-center space-x-2">
-        <label htmlFor="bookName" className="w-16 font-medium text-primary">
-          书名:
-        </label>
-        <div className="relative w-full max-w-sm">
-          <input
-            id="bookName"
-            type="text"
-            value={bookName}
-            onChange={handleInputChange}
-            placeholder="请输入书名"
-            className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
-          />
-          {bookName && (
-            <button
-              onClick={clearInput}
-              className="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-gray-600"
-            >
-              <X size={18} />
-            </button>
-          )}
+      <div className="flex items-center justify-between">
+        <div className="flex items-center space-x-2">
+          <label htmlFor="bookName" className="w-16 font-medium text-primary">
+            书名:
+          </label>
+          <div className="relative w-full max-w-sm">
+            <input
+              id="bookName"
+              type="text"
+              value={bookName}
+              onChange={handleInputChange}
+              placeholder="请输入书名"
+              className="w-full rounded-md border border-stroke bg-transparent px-5 py-3 text-base text-dark outline-none transition placeholder:text-dark-6 focus:border-primary focus-visible:shadow-none dark:border-dark-3 dark:text-white dark:focus:border-primary"
+            />
+            {bookName && (
+              <button
+                onClick={clearInput}
+                className="absolute right-2 top-1/2 -translate-y-1/2 transform text-gray-400 hover:text-gray-600"
+              >
+                <X size={18} />
+              </button>
+            )}
+          </div>
         </div>
+        <button
+          onClick={exportNotes}
+          className="rounded-md border  border-primary px-4 py-2 text-primary transition duration-300"
+        >
+          导出
+        </button>
       </div>
       <ul className="space-y-4">
         {notes.map((note: any) => (

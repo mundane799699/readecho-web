@@ -22,6 +22,9 @@ if (typeof window !== "undefined") {
 }
 
 instance.interceptors.response.use((res) => {
+  if (res.config.responseType === "blob") {
+    return res;
+  }
   const { data } = res;
   return data as any;
 });
