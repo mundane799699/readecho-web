@@ -30,7 +30,6 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const pathUrl = usePathname();
 
   useEffect(() => {
-    console.log("AuthProvider mounted");
     const token = getToken();
     if (token) {
       fetchUserInfo();

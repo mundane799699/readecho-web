@@ -36,7 +36,7 @@ const TabComponent: React.FC = () => {
           }`}
           onClick={() => handleBookSelect("")}
         >
-          划线
+          笔记
         </button>
       </div>
       <div className="mt-4">

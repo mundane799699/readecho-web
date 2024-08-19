@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import HeroSection from "./HeroSection";
 
 const Hero = () => {
   return (
@@ -24,26 +25,7 @@ const Hero = () => {
                 <p className="mx-auto mb-9 max-w-[600px] text-base font-medium text-white sm:text-lg sm:leading-[1.44]">
                   自定义你的笔记回顾方式，不错过每一个阅读瞬间。
                 </p>
-                <ul className="mb-10 flex flex-wrap items-center justify-center gap-5">
-                  <li>
-                    <Link
-                      href="https://nextjstemplates.com/templates/play"
-                      className="inline-flex items-center justify-center rounded-md bg-white px-7 py-[14px] text-center text-base font-medium text-dark shadow-1 transition duration-300 ease-in-out hover:bg-gray-2"
-                    >
-                      注册
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      href="https://github.com/nextjsTemplates/play-nextjs"
-                      target="_blank"
-                      className="flex items-center gap-4 rounded-md bg-white/[0.12] px-6 py-[14px] text-base font-medium text-white transition duration-300 ease-in-out hover:bg-white hover:text-dark"
-                    >
-                      登录
-                    </Link>
-                  </li>
-                </ul>
-
+                <HeroSection />
                 <div>
                   <p className="mb-4 text-center text-base font-medium text-white/60">
                     下载浏览器插件
@@ -101,7 +83,7 @@ const Hero = () => {
               >
                 <div className="mt-16">
                   <Image
-                    src="/images/hero/hero-image.jpg"
+                    src="/images/hero/hero-image.png"
                     alt="hero"
                     className="mx-auto max-w-full rounded-t-xl rounded-tr-xl"
                     width={845}

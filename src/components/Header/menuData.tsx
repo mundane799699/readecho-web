@@ -7,18 +7,18 @@ const menuData: Menu[] = [
     path: "/",
     newTab: false,
   },
-  {
-    id: 3,
-    title: "Pro版",
-    path: "/pricing",
-    newTab: false,
-  },
-  {
-    id: 5,
-    title: "文章",
-    path: "/blogs",
-    newTab: false,
-  },
+  // {
+  //   id: 3,
+  //   title: "Pro版",
+  //   path: "/pricing",
+  //   newTab: false,
+  // },
+  // {
+  //   id: 5,
+  //   title: "文章",
+  //   path: "/blogs",
+  //   newTab: false,
+  // },
   // {
   //   id: 6,
   //   title: "Pages",
@@ -70,7 +70,7 @@ const menuData: Menu[] = [
   // },
   {
     id: 7,
-    title: "查看笔记",
+    title: "我的笔记",
     path: "/dashboard",
     newTab: false,
   },
