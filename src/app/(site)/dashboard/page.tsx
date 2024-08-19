@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import TabComponent from "@/components/DashBoard/TabComponent";
 
 export const metadata: Metadata = {
-  title: "数据面板",
+  title: "我的笔记",
 };
 
 const DashBoardPage = () => {
