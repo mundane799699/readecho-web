@@ -17,6 +17,7 @@ export default function middleware(request: NextRequest) {
     // 如果是受保护的路由且用户未登录，重定向到登录页面
     const response = NextResponse.redirect(new URL("/signin", request.url));
     response.headers.set("x-middleware-cache", "no-cache");
+    response.headers.set("Cache-Control", "no-cache");
     return response;
   }
 
