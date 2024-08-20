@@ -152,16 +152,28 @@ const Header = () => {
                       menuItem.path ? (
                         <li key={index} className="group relative">
                           {pathUrl !== "/" ? (
-                            <Link
-                              onClick={navbarToggleHandler}
-                              scroll={false}
-                              href={menuItem.path}
-                              className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6 ${
-                                pathUrl === menuItem?.path && "text-primary"
-                              }`}
-                            >
-                              {menuItem.title}
-                            </Link>
+                            pathUrl === "/dashboard" ? (
+                              <a
+                                onClick={navbarToggleHandler}
+                                href={menuItem.path}
+                                className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6 ${
+                                  pathUrl === menuItem?.path && "text-primary"
+                                }`}
+                              >
+                                {menuItem.title}
+                              </a>
+                            ) : (
+                              <Link
+                                onClick={navbarToggleHandler}
+                                scroll={false}
+                                href={menuItem.path}
+                                className={`ud-menu-scroll flex py-2 text-base text-dark group-hover:text-primary dark:text-white dark:group-hover:text-primary lg:inline-flex lg:px-0 lg:py-6 ${
+                                  pathUrl === menuItem?.path && "text-primary"
+                                }`}
+                              >
+                                {menuItem.title}
+                              </Link>
+                            )
                           ) : (
                             <Link
                               scroll={false}

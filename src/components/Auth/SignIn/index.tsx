@@ -31,7 +31,7 @@ const Signin = () => {
         setToken(res.token);
 
         toast.success("登录成功");
-        router.push("/");
+        router.push("/dashboard");
       } else {
         toast.success(res.msg || "登录失败，请检查用户名或密码");
       }
