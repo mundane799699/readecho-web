@@ -51,9 +51,6 @@ const BookList: React.FC<BookListProps> = ({ onBookSelect }) => {
                 划线 ({`${item.markCount}) | 想法 (${item.noteCount})`}
               </h2>
             </div>
-            <div className="flex flex-col justify-between">
-              <h2 className="text-left text-xs text-gray-500">详情</h2>
-            </div>
           </div>
         </li>
       ))}
