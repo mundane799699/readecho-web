@@ -35,7 +35,7 @@ const Hero = () => {
                     data-wow-delay=".3s"
                   >
                     <a
-                      href="/"
+                      href="https://chromewebstore.google.com/detail/readecho-%E5%90%8C%E6%AD%A5%E4%BD%A0%E7%9A%84%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ibinnfpnfbcfdblmjpmjjmffcjlcadig"
                       className="text-white/60 duration-300 ease-in-out hover:text-white"
                       target="_blank"
                       title="chrome插件"
