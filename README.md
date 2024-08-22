@@ -1,6 +1,6 @@
 # readecho网站前端代码
 
-本仓库是https://readecho.cn的网页端代码开源。
+本仓库是<https://readecho.cn>的网页端代码开源。
 
 readecho配合同名[浏览器插件](https://chromewebstore.google.com/detail/readecho-%E5%90%8C%E6%AD%A5%E4%BD%A0%E7%9A%84%E5%BE%AE%E4%BF%A1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/ibinnfpnfbcfdblmjpmjjmffcjlcadig)，可以轻松的将微信读书笔记同步到网页端并且导出。
 
